@@ -1,4 +1,6 @@
-const TotalRewards = ({ rewards }) => (
+import PropTypes from "prop-types";
+
+const TotalRewards = ({ rewards = [] }) => (
   <div className="table-container">
     <h3>Total Rewards</h3>
 
@@ -21,4 +23,7 @@ const TotalRewards = ({ rewards }) => (
   </div>
 );
 
+TotalRewards.propTypes = {
+  rewards: PropTypes.array,
+};
 export default TotalRewards;

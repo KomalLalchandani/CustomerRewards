@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const MonthlyRewards = ({ rewards = [] }) => (
   <div className="table-container">
     <h3>User Monthly Rewards</h3>
@@ -16,7 +18,7 @@ const MonthlyRewards = ({ rewards = [] }) => (
           ?.sort((a, b) => new Date(b.date) - new Date(a.date))
           .map((data) =>
             Object.entries(data.monthly).map(([monthYear, points]) => {
-              const [month, year] = monthYear.split(' ');
+              const [month, year] = monthYear.split(" ");
               return (
                 <tr key={data?.customerId + monthYear}>
                   <td>{data?.customerId}</td>
@@ -33,4 +35,7 @@ const MonthlyRewards = ({ rewards = [] }) => (
   </div>
 );
 
+MonthlyRewards.propTypes = {
+  rewards: PropTypes.array,
+};
 export default MonthlyRewards;
