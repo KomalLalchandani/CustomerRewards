@@ -25,7 +25,7 @@ The Retailer Rewards Program is a web application that tracks customer transacti
 
 # 1️ Clone the repository
 
-git clone [https://github.com/your-username/reward-program.git](https://github.com/KomalLalchandani/CustomerRewards.git)
+git clone https://github.com/KomalLalchandani/CustomerRewards.git
 cd reward-program
 
 # 2️ Install dependencies
