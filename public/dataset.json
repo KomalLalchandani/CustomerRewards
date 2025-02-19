@@ -1,0 +1,122 @@
+[
+  {
+    "transactionId": 1,
+    "customerId": "C004",
+    "customer": "David",
+    "date": "2025-02-10",
+    "product": "Smart TV",
+    "amount": 800
+  },
+  {
+    "transactionId": 2,
+    "customerId": "C001",
+    "customer": "Alice",
+    "date": "2025-01-11",
+    "product": "Gaming Console",
+    "amount": 400
+  },
+  {
+    "transactionId": 3,
+    "customerId": "C005",
+    "customer": "Eve",
+    "date": "2025-01-03",
+    "product": "VR Headset",
+    "amount": 499.99
+  },
+  {
+    "transactionId": 4,
+    "customerId": "C002",
+    "customer": "Bob",
+    "date": "2024-12-20",
+    "product": "Gaming Chair",
+    "amount": 250
+  },
+  {
+    "transactionId": 5,
+    "customerId": "C003",
+    "customer": "Charlie",
+    "date": "2024-12-12",
+    "product": "Microphone",
+    "amount": 75
+  },
+  {
+    "transactionId": 6,
+    "customerId": "C001",
+    "customer": "Alice",
+    "date": "2024-11-19",
+    "product": "Webcam",
+    "amount": 45.99
+  },
+  {
+    "transactionId": 7,
+    "customerId": "C004",
+    "customer": "David",
+    "date": "2024-11-10",
+    "product": "Speaker",
+    "amount": 90
+  },
+  {
+    "transactionId": 8,
+    "customerId": "C005",
+    "customer": "Eve",
+    "date": "2024-10-05",
+    "product": "SSD",
+    "amount": 110
+  },
+  {
+    "transactionId": 9,
+    "customerId": "C002",
+    "customer": "Bob",
+    "date": "2024-08-21",
+    "product": "Router",
+    "amount": 60
+  },
+  {
+    "transactionId": 10,
+    "customerId": "C001",
+    "customer": "Alice",
+    "date": "2024-06-08",
+    "product": "External HDD",
+    "amount": 85.45
+  },
+  {
+    "transactionId": 11,
+    "customerId": "C003",
+    "customer": "Charlie",
+    "date": "2024-05-28",
+    "product": "Graphics Card",
+    "amount": 350
+  },
+  {
+    "transactionId": 12,
+    "customerId": "C005",
+    "customer": "Eve",
+    "date": "2023-12-07",
+    "product": "Printer",
+    "amount": 150
+  },
+  {
+    "transactionId": 13,
+    "customerId": "C004",
+    "customer": "David",
+    "date": "2023-11-05",
+    "product": "Monitor",
+    "amount": 180.5
+  },
+  {
+    "transactionId": 14,
+    "customerId": "C002",
+    "customer": "Bob",
+    "date": "2023-09-10",
+    "product": "Headphones",
+    "amount": 55
+  },
+  {
+    "transactionId": 15,
+    "customerId": "C003",
+    "customer": "Charlie",
+    "date": "2023-07-08",
+    "product": "Smartwatch",
+    "amount": 120
+  }
+]

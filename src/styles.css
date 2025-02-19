@@ -1,0 +1,187 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Container */
+.container {
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 3px solid #0056b3;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 10px 0 0;
+  font-size: 18px;
+}
+
+.nav-links li {
+  margin: 0 15px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.nav-links li:hover,
+.nav-links .active {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Content */
+.content {
+  padding: 20px;
+  color: black;
+}
+
+.no-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+/* Tables */
+.table-container {
+  overflow-x: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select-option {
+  width: 200px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #f3f3f3;
+  font-size: 15px;
+}
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.styled-table th,
+.styled-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.styled-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.styled-table tr:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Loader */
+.loader {
+  border: 6px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 6px solid #007bff;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Messages */
+.error-container {
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  background-color: #ffe5e5;
+  border: 1px solid red;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .content {
+    padding: 10px;
+  }
+  .styled-table th,
+  .styled-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .loader {
+    width: 30px;
+    height: 30px;
+  }
+  .error-container {
+    width: 90%;
+    padding: 15px;
+  }
+  .error {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 18px;
+    padding: 10px 0;
+  }
+  .error-container {
+    width: 100%;
+    padding: 10px;
+  }
+  .error {
+    font-size: 12px;
+    padding: 5px;
+  }
+}

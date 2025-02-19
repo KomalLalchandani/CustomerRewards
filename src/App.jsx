@@ -1,0 +1,20 @@
+import React, { useState } from 'react';
+import CustomerRewards from './components/scene/CustomerRewards';
+import './styles.css';
+import Header from './components/common/Header';
+
+const App = () => {
+  const [selectedView, setSelectedView] = useState('transactions');
+
+  return (
+    <div className="container">
+      <Header
+        onSelectView={(val) => setSelectedView(val)}
+        selectedView={selectedView}
+      />
+      <CustomerRewards selectedView={selectedView} />
+    </div>
+  );
+};
+
+export default App;
