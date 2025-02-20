@@ -15,8 +15,8 @@ export const calculatePoints = (amount) => {
 
 export const calculateRewards = (transactions) => {
   const rewards = transactions.reduce((acc, val) => {
-    const month = new Date(val?.date).toLocaleString('default', {
-      month: 'long',
+    const month = new Date(val?.date).toLocaleString("default", {
+      month: "long",
     });
     const year = new Date(val?.date).getFullYear();
     const key = `${month} ${year}`;

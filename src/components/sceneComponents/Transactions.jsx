@@ -2,10 +2,19 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { calculatePoints } from "../../utils";
 
+/**
+ * Transactions Component
+ * This component is responsible for displaying all transaction list.
+ *
+ * @param {Object} props - Component properties
+ * @param {Array} props.transactions - List of transactions to be displayed.
+ */
+
 const options = [
   { name: "All", id: "all" },
   { name: "Last 3 months", id: "last_3_months" },
 ];
+
 const getLastThreeMonthsTransactions = (transactions) => {
   const currentDate = new Date();
   const threeMonthsAgo = new Date();

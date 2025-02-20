@@ -1,5 +1,13 @@
 import PropTypes from "prop-types";
 
+/**
+ * TotalRewards Component
+ * This component is responsible for displaying total rewards list.
+ *
+ * @param {Object} props - Component properties
+ * @param {Array} props.rewards - List to Total Rewards to be displayed.
+ */
+
 const TotalRewards = ({ rewards = [] }) => (
   <div className="table-container">
     <h3>Total Rewards</h3>
