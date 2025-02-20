@@ -27,7 +27,7 @@ const getLastThreeMonthsTransactions = (transactions) => {
 };
 
 const Transactions = ({ transactions = [] }) => {
-  const [isAscending, setIsAscending] = useState(true);
+  const [isAscending, setIsAscending] = useState(false);
   const [filterOption, setFilterOption] = useState("all");
 
   // Filter transactions based on the selected option
@@ -48,7 +48,7 @@ const Transactions = ({ transactions = [] }) => {
   return (
     <div className="table-container">
       <div className="table-header">
-        <h3>Transactions</h3>
+        <h3>All Transactions</h3>
 
         <select
           name="sort"

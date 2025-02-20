@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, test, expect } from "vitest";
+import { describe, test, expect, vi } from "vitest";
 import Transactions from "./Transactions";
+import { calculatePoints } from "../../utils";
 
 const mockTransactions = [
   {
@@ -8,7 +9,7 @@ const mockTransactions = [
     customer: "John Doe",
     date: "2025-02-01",
     product: "Laptop",
-    amount: 150.0,
+    amount: 120.5,
   },
   {
     transactionId: "T002",
@@ -25,6 +26,15 @@ const mockTransactions = [
     amount: 300.0,
   },
 ];
+
+vi.mock("../../utils/calculatePoints", () => ({
+  calculatePoints: vi.fn((amount) => {
+    if (amount > 100) return (amount - 100) * 2 + 50;
+    amount = 100;
+    if (amount > 50) return amount - 50;
+    return 0;
+  }),
+}));
 
 describe("Transactions Component", () => {
   test("renders the Transactions component correctly", () => {
@@ -74,5 +84,21 @@ describe("Transactions Component", () => {
 
     // Older transaction should be hidden
     expect(screen.queryByText("T002")).not.toBeInTheDocument(); // Nov 2023
+  });
+
+  test("displays correct reward points for each transaction", () => {
+    render(<Transactions transactions={mockTransactions} />);
+
+    expect(screen.getByText("Reward Points")).toBeInTheDocument();
+
+    expect(
+      screen.getByText(calculatePoints(120.5).toFixed(2).toString())
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(calculatePoints(200.0).toFixed(2).toString())
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(calculatePoints(300.0).toFixed(2).toString())
+    ).toBeInTheDocument();
   });
 });

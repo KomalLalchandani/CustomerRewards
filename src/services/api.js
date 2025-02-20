@@ -1,6 +1,7 @@
 // api.js - Simulated API call
 export const fetchTransactions = async (cb) => {
   try {
+    // throw new Error("API Failure");
     const response = await fetch("../public/dataset.json");
 
     if (!response.ok) {
@@ -8,7 +9,6 @@ export const fetchTransactions = async (cb) => {
         `Failed to fetch data: ${response.status} ${response.statusText}`
       );
     }
-
     const data = await response.json();
     cb({ type: "success", data });
   } catch (error) {

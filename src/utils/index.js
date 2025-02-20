@@ -1,11 +1,13 @@
 // utils.js - Reward Calculation
 
 export const calculatePoints = (amount) => {
+  if (typeof amount !== "number" || amount < 0) return 0;
   let points = 0;
-  const roundedAmount = Math.floor(amount);
+  let roundedAmount = Math.floor(amount);
 
   if (roundedAmount > 100) {
     points += (roundedAmount - 100) * 2;
+    roundedAmount = 100;
   }
   if (roundedAmount > 50) {
     points += roundedAmount - 50;
