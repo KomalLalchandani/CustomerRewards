@@ -15,10 +15,10 @@ The Retailer Rewards Program is a web application that tracks customer transacti
 
 ## Tech Stack:
 
-- Frontend: React, React Hooks, React Testing Library (RTL), Jest
+- Frontend: React, React Hooks, React Testing Library (RTL), Vitest
 - State Management: React useState, useEffect
 - Styling: CSS Modules
-- Testing: Jest, React Testing Library
+- Testing: Vitest, React Testing Library
 - API Handling: Custom React Hooks
 
 ## Installation & Setup:
