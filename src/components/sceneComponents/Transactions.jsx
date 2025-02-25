@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+
 import {
   calculatePoints,
   getLastThreeMonthsTransactions,
@@ -21,7 +22,7 @@ const options = [
 
 const Transactions = ({ transactions = [] }) => {
   const [isAscending, setIsAscending] = useState(false);
-  const [filterOption, setFilterOption] = useState("all");
+  const [filterOption, setFilterOption] = useState("last_3_months");
 
   // Filter transactions based on the selected option
   const filteredTransactions =
@@ -90,14 +91,14 @@ const Transactions = ({ transactions = [] }) => {
         </thead>
         <tbody>
           {sortedTransactions.map((dt) => {
-            const points = calculatePoints(dt?.amount);
+            const points = calculatePoints(dt.amount);
             return (
-              <tr key={dt?.transaction_id}>
-                <td>{dt?.transaction_id}</td>
-                <td>{dt?.customer}</td>
-                <td>{dt?.date}</td>
-                <td>{dt?.product}</td>
-                <td>${dt?.amount}</td>
+              <tr key={dt.transaction_id}>
+                <td>{dt.transaction_id}</td>
+                <td>{dt.customer}</td>
+                <td>{dt.date}</td>
+                <td>{dt.product}</td>
+                <td>${dt.amount}</td>
                 <td>{points}</td>
               </tr>
             );
@@ -109,6 +110,14 @@ const Transactions = ({ transactions = [] }) => {
 };
 
 Transactions.propTypes = {
-  transactions: PropTypes.array,
+  transactions: PropTypes.arrayOf(
+    PropTypes.shape({
+      transaction_id: PropTypes.string.isRequired,
+      customer: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      product: PropTypes.string.isRequired,
+      amount: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 export default Transactions;

@@ -70,21 +70,23 @@ npm test
 OR
 yarn test
 
+![Test Cases](./public/assets/screenshots/TestCases.png)
+
 ## ✅ Successful Cases
 
 ### Transactions List Display
 
-![Transactions List](./src/assets/screenshots/Transactions.png)
+![Transactions List](./public/assets/screenshots/Transactions.png)
 
 ### Total Reward Points Calculation
 
-![Reward Points](./src/assets/screenshots/TotalRewards.png)
+![Reward Points](./public/assets/screenshots/TotalRewards.png)
 
 ## ❌ Error Cases
 
 ### API Failure
 
-![API Failure](./src/assets/screenshots/ErrorHandler.png)
+![API Failure](./public/assets/screenshots/ErrorHandler.png)
 
 ## License
 

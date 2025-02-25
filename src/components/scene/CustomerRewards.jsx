@@ -1,10 +1,13 @@
-import PropTypes from "prop-types";
 import { memo } from "react";
+import PropTypes from "prop-types";
+
 import "../../styles.css";
+
+import { useGetTransactionListHook } from "../../hooks/useGetTransactionListHook";
+
 import MonthlyRewards from "../sceneComponents/MonthlyRewards";
 import TotalRewards from "../sceneComponents/TotalRewards";
 import Transactions from "../sceneComponents/Transactions";
-import { useGetTransactionListHook } from "../../hooks/useGetTransactionListHook";
 
 /**
  * CustomerRewards Component

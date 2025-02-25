@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchTransactions } from "../services/api";
+
 import { rewardsSummary, calculateTotalRewards } from "../utils";
 
 export function useGetTransactionListHook() {
@@ -10,12 +11,10 @@ export function useGetTransactionListHook() {
   const [error, setError] = useState(null); // Add an error state
   useEffect(() => {
     fetchTransactions((result) => {
-      if (result.type === "success") {
-        setTransactions(result?.data);
-        setMonthlyRewards(rewardsSummary(result?.data));
-        setTotalRewards(calculateTotalRewards(result?.data));
-        setLoading(false);
-        setError(null);
+      if (result.type === "success" && result?.data) {
+        setTransactions(result.data);
+        setMonthlyRewards(rewardsSummary(result.data));
+        setTotalRewards(calculateTotalRewards(result.data));
       } else {
         setError(result.error || "Something went wrong!");
       }

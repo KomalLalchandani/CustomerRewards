@@ -1,7 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import CustomerRewards from "../../components/scene/CustomerRewards";
-import { useGetTransactionListHook } from "../../hooks/useGetTransactionListHook";
 import { describe, test, expect, vi } from "vitest";
+
+import { useGetTransactionListHook } from "../../hooks/useGetTransactionListHook";
+
+import CustomerRewards from "../../components/scene/CustomerRewards";
 
 vi.mock("../../hooks/useGetTransactionListHook", () => ({
   useGetTransactionListHook: vi.fn(),

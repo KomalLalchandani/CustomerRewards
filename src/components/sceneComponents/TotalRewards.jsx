@@ -1,5 +1,6 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
+import PropTypes from "prop-types";
+
 import { sortByRewardPoints } from "../../utils";
 
 /**
@@ -46,9 +47,9 @@ const TotalRewards = ({ totalRewards = [] }) => {
         </thead>
         <tbody>
           {sortedTotalRewards.map((data) => (
-            <tr key={data?.customer_id}>
-              <td>{data?.name}</td>
-              <td>{data?.total_reward_points}</td>
+            <tr key={data.customer_id}>
+              <td>{data.name}</td>
+              <td>{data.total_reward_points}</td>
             </tr>
           ))}
         </tbody>
@@ -58,6 +59,12 @@ const TotalRewards = ({ totalRewards = [] }) => {
 };
 
 TotalRewards.propTypes = {
-  totalRewards: PropTypes.array,
+  totalRewards: PropTypes.arrayOf(
+    PropTypes.shape({
+      customer_id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      total_reward_points: PropTypes.number.isRequired,
+    })
+  ),
 };
 export default TotalRewards;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+
 import { sortByCustomerId } from "../../utils";
 
 /**
@@ -57,12 +58,12 @@ const MonthlyRewards = ({ monthlyRewards = [] }) => {
         <tbody>
           {sortedMonthlyRewards.map((data) => {
             return (
-              <tr key={data?.customer_id + `${data?.month + data?.year}`}>
-                <td>{data?.customer_id}</td>
-                <td>{data?.name}</td>
-                <td>{data?.month}</td>
-                <td>{data?.year}</td>
-                <td>{data?.reward_points}</td>
+              <tr key={data.customer_id + `${data.month + data.year}`}>
+                <td>{data.customer_id}</td>
+                <td>{data.name}</td>
+                <td>{data.month}</td>
+                <td>{data.year}</td>
+                <td>{data.reward_points}</td>
               </tr>
             );
           })}
@@ -73,6 +74,15 @@ const MonthlyRewards = ({ monthlyRewards = [] }) => {
 };
 
 MonthlyRewards.propTypes = {
-  monthlyRewards: PropTypes.array,
+  monthlyRewards: PropTypes.arrayOf(
+    PropTypes.shape({
+      customer_id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      month: PropTypes.string.isRequired,
+      year: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
+      reward_points: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 export default MonthlyRewards;

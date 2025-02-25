@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { test, expect, vi } from "vitest";
+
 import Header from "./Header";
 
 test("renders Header component correctly", () => {

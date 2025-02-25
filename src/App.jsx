@@ -1,6 +1,8 @@
 import { useState, useCallback } from "react";
-import CustomerRewards from "./components/scene/CustomerRewards";
+
 import "./styles.css";
+
+import CustomerRewards from "./components/scene/CustomerRewards";
 import Header from "./components/common/Header";
 
 /**

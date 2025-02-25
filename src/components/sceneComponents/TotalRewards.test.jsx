@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import TotalRewards from "./TotalRewards";
 import { describe, test, expect, vi } from "vitest";
+
+import TotalRewards from "./TotalRewards";
 
 // Mock sorting function
 vi.mock("../../utils", () => ({
