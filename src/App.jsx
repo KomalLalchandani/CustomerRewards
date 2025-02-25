@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import CustomerRewards from "./components/scene/CustomerRewards";
 import "./styles.css";
 import Header from "./components/common/Header";
@@ -12,10 +12,14 @@ import Header from "./components/common/Header";
 const App = () => {
   const [selectedView, setSelectedView] = useState("transactions");
 
+  const onChangeSelectedView = useCallback((view) => {
+    setSelectedView(view);
+  }, []);
+
   return (
     <div className="container">
       <Header
-        onSelectView={(val) => setSelectedView(val)}
+        onSelectView={(val) => onChangeSelectedView(val)}
         selectedView={selectedView}
       />
       <CustomerRewards selectedView={selectedView} />

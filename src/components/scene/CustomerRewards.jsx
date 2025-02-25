@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { memo } from "react";
 import "../../styles.css";
 import MonthlyRewards from "../sceneComponents/MonthlyRewards";
 import TotalRewards from "../sceneComponents/TotalRewards";
@@ -17,7 +18,8 @@ const CustomerRewards = ({ selectedView }) => {
   const {
     loader,
     transactions,
-    rewards = [],
+    monthlyRewards = [],
+    totalRewards = [],
     error,
   } = useGetTransactionListHook();
 
@@ -36,8 +38,12 @@ const CustomerRewards = ({ selectedView }) => {
 
   return transactions.length ? (
     <div className="content">
-      {selectedView === "monthly" && <MonthlyRewards rewards={rewards || []} />}
-      {selectedView === "total" && <TotalRewards rewards={rewards || []} />}
+      {selectedView === "monthly" && (
+        <MonthlyRewards monthlyRewards={monthlyRewards || []} />
+      )}
+      {selectedView === "total" && (
+        <TotalRewards totalRewards={totalRewards || []} />
+      )}
       {selectedView === "transactions" && (
         <Transactions transactions={transactions || []} />
       )}
@@ -52,4 +58,4 @@ const CustomerRewards = ({ selectedView }) => {
 CustomerRewards.propTypes = {
   selectedView: PropTypes.string,
 };
-export default CustomerRewards;
+export default memo(CustomerRewards);

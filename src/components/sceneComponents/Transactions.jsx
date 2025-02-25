@@ -1,6 +1,10 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { calculatePoints } from "../../utils";
+import {
+  calculatePoints,
+  getLastThreeMonthsTransactions,
+  sortByDate,
+} from "../../utils";
 
 /**
  * Transactions Component
@@ -15,17 +19,6 @@ const options = [
   { name: "Last 3 months", id: "last_3_months" },
 ];
 
-const getLastThreeMonthsTransactions = (transactions) => {
-  const currentDate = new Date();
-  const threeMonthsAgo = new Date();
-  threeMonthsAgo.setMonth(currentDate.getMonth() - 3);
-
-  return transactions.filter((transaction) => {
-    const transactionDate = new Date(transaction.date);
-    return transactionDate >= threeMonthsAgo && transactionDate <= currentDate;
-  });
-};
-
 const Transactions = ({ transactions = [] }) => {
   const [isAscending, setIsAscending] = useState(false);
   const [filterOption, setFilterOption] = useState("all");
@@ -37,13 +30,7 @@ const Transactions = ({ transactions = [] }) => {
       : transactions;
 
   // Sort transactions
-  const sortedTransactions = isAscending
-    ? [...filteredTransactions].sort(
-        (a, b) => new Date(a.date) - new Date(b.date)
-      )
-    : [...filteredTransactions].sort(
-        (a, b) => new Date(b.date) - new Date(a.date)
-      );
+  const sortedTransactions = sortByDate(filteredTransactions, isAscending);
 
   return (
     <div className="table-container">
@@ -74,6 +61,7 @@ const Transactions = ({ transactions = [] }) => {
               style={{
                 display: "flex",
                 alignItems: "center",
+                justifyContent: "center",
               }}
             >
               Purchase Date
@@ -104,13 +92,13 @@ const Transactions = ({ transactions = [] }) => {
           {sortedTransactions.map((dt) => {
             const points = calculatePoints(dt?.amount);
             return (
-              <tr key={dt?.transactionId}>
-                <td>{dt?.transactionId}</td>
+              <tr key={dt?.transaction_id}>
+                <td>{dt?.transaction_id}</td>
                 <td>{dt?.customer}</td>
                 <td>{dt?.date}</td>
                 <td>{dt?.product}</td>
                 <td>${dt?.amount}</td>
-                <td>{points.toFixed(2)}</td>
+                <td>{points}</td>
               </tr>
             );
           })}

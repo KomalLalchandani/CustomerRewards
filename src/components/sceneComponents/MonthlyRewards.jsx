@@ -1,4 +1,6 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
+import { sortByCustomerId } from "../../utils";
 
 /**
  * MonthlyRewards Component
@@ -8,42 +10,69 @@ import PropTypes from "prop-types";
  * @param {Array} props.rewards - List of Monthly Rewards to be displayed.
  */
 
-const MonthlyRewards = ({ rewards = [] }) => (
-  <div className="table-container">
-    <h3>User Monthly Rewards</h3>
-    <table className="styled-table">
-      <thead>
-        <tr>
-          <th>Customer ID</th>
-          <th>Name</th>
-          <th>Month</th>
-          <th>Year</th>
-          <th>Reward Points</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rewards
-          ?.sort((a, b) => new Date(b.date) - new Date(a.date))
-          .map((data) =>
-            Object.entries(data?.monthly || {}).map(([monthYear, points]) => {
-              const [month, year] = monthYear.split(" ");
-              return (
-                <tr key={data?.customerId + monthYear}>
-                  <td>{data?.customerId}</td>
-                  <td>{data?.name}</td>
-                  <td>{month}</td>
-                  <td>{year}</td>
-                  <td>{points.toFixed(2)}</td>
-                </tr>
-              );
-            })
-          )}
-      </tbody>
-    </table>
-  </div>
-);
+const MonthlyRewards = ({ monthlyRewards = [] }) => {
+  const [sortState, setSortState] = useState("default");
+  const sortedMonthlyRewards = sortByCustomerId(monthlyRewards, sortState);
+
+  return (
+    <div className="table-container">
+      <h3>User Monthly Rewards</h3>
+      <table className="styled-table">
+        <thead>
+          <tr>
+            <th>
+              Customer ID
+              {sortState === "default" ? (
+                <span
+                  data-testid="sort-button"
+                  onClick={() => setSortState("asc")}
+                  style={{ cursor: "pointer", marginLeft: 20 }}
+                >
+                  <i className="fa-solid fa-sort"></i>
+                </span>
+              ) : sortState === "asc" ? (
+                <span
+                  data-testid="sort-button"
+                  onClick={() => setSortState("desc")}
+                  style={{ cursor: "pointer", marginLeft: 20 }}
+                >
+                  <i className="fa-solid fa-sort-up"></i>
+                </span>
+              ) : (
+                <span
+                  data-testid="sort-button"
+                  onClick={() => setSortState("default")}
+                  style={{ cursor: "pointer", marginLeft: 20 }}
+                >
+                  <i className="fa-solid fa-sort-down"></i>
+                </span>
+              )}
+            </th>
+            <th>Name</th>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Reward Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedMonthlyRewards.map((data) => {
+            return (
+              <tr key={data?.customer_id + `${data?.month + data?.year}`}>
+                <td>{data?.customer_id}</td>
+                <td>{data?.name}</td>
+                <td>{data?.month}</td>
+                <td>{data?.year}</td>
+                <td>{data?.reward_points}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 MonthlyRewards.propTypes = {
-  rewards: PropTypes.array,
+  monthlyRewards: PropTypes.array,
 };
 export default MonthlyRewards;

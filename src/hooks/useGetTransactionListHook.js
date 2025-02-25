@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import { fetchTransactions } from "../services/api";
-import { calculateRewards } from "../utils";
+import { rewardsSummary, calculateTotalRewards } from "../utils";
 
 export function useGetTransactionListHook() {
   const [transactions, setTransactions] = useState([]);
-  const [rewards, setRewards] = useState({});
+  const [monthlyRewards, setMonthlyRewards] = useState([]);
+  const [totalRewards, setTotalRewards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); // Add an error state
   useEffect(() => {
     fetchTransactions((result) => {
       if (result.type === "success") {
         setTransactions(result?.data);
-        setRewards(calculateRewards(result?.data));
+        setMonthlyRewards(rewardsSummary(result?.data));
+        setTotalRewards(calculateTotalRewards(result?.data));
         setLoading(false);
         setError(null);
       } else {
@@ -24,7 +26,8 @@ export function useGetTransactionListHook() {
   return {
     loader: loading,
     transactions,
-    rewards,
+    monthlyRewards,
+    totalRewards,
     error,
   };
 }

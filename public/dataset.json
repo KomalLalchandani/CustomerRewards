@@ -1,119 +1,167 @@
 [
   {
-    "transactionId": 1,
-    "customerId": "C004",
+    "transaction_id": "TXN20250210001",
+    "customer_id": "C004",
     "customer": "David",
     "date": "2025-02-10",
     "product": "Smart TV",
     "amount": 800
   },
   {
-    "transactionId": 2,
-    "customerId": "C001",
+    "transaction_id": "TXN20250215002",
+    "customer_id": "C004",
+    "customer": "David",
+    "date": "2025-02-15",
+    "product": "Soundbar",
+    "amount": 250
+  },
+  {
+    "transaction_id": "TXN20250220003",
+    "customer_id": "C004",
+    "customer": "David",
+    "date": "2025-02-20",
+    "product": "Gaming Mouse",
+    "amount": 60
+  },
+  {
+    "transaction_id": "TXN20250111004",
+    "customer_id": "C001",
     "customer": "Alice",
     "date": "2025-01-11",
     "product": "Gaming Console",
     "amount": 400
   },
   {
-    "transactionId": 3,
-    "customerId": "C005",
+    "transaction_id": "TXN20250115005",
+    "customer_id": "C001",
+    "customer": "Alice",
+    "date": "2025-01-15",
+    "product": "Gaming Headset",
+    "amount": 100
+  },
+  {
+    "transaction_id": "TXN20250103006",
+    "customer_id": "C005",
     "customer": "Eve",
     "date": "2025-01-03",
     "product": "VR Headset",
     "amount": 499.99
   },
   {
-    "transactionId": 4,
-    "customerId": "C002",
+    "transaction_id": "TXN20241220007",
+    "customer_id": "C002",
     "customer": "Bob",
     "date": "2024-12-20",
     "product": "Gaming Chair",
     "amount": 250
   },
   {
-    "transactionId": 5,
-    "customerId": "C003",
+    "transaction_id": "TXN20241225008",
+    "customer_id": "C002",
+    "customer": "Bob",
+    "date": "2024-12-25",
+    "product": "Mechanical Keyboard",
+    "amount": 120
+  },
+  {
+    "transaction_id": "TXN20241212009",
+    "customer_id": "C003",
     "customer": "Charlie",
     "date": "2024-12-12",
     "product": "Microphone",
     "amount": 75
   },
   {
-    "transactionId": 6,
-    "customerId": "C001",
+    "transaction_id": "TXN20241119010",
+    "customer_id": "C001",
     "customer": "Alice",
     "date": "2024-11-19",
     "product": "Webcam",
     "amount": 45.99
   },
   {
-    "transactionId": 7,
-    "customerId": "C004",
+    "transaction_id": "TXN20241125011",
+    "customer_id": "C001",
+    "customer": "Alice",
+    "date": "2024-11-25",
+    "product": "External SSD",
+    "amount": 200
+  },
+  {
+    "transaction_id": "TXN20241110012",
+    "customer_id": "C004",
     "customer": "David",
     "date": "2024-11-10",
     "product": "Speaker",
     "amount": 100.8
   },
   {
-    "transactionId": 8,
-    "customerId": "C005",
+    "transaction_id": "TXN20241005013",
+    "customer_id": "C005",
     "customer": "Eve",
     "date": "2024-10-05",
     "product": "SSD",
     "amount": 110
   },
   {
-    "transactionId": 9,
-    "customerId": "C002",
+    "transaction_id": "TXN20240821014",
+    "customer_id": "C002",
     "customer": "Bob",
     "date": "2024-08-21",
     "product": "Router",
     "amount": 60
   },
   {
-    "transactionId": 10,
-    "customerId": "C001",
+    "transaction_id": "TXN20240608015",
+    "customer_id": "C001",
     "customer": "Alice",
     "date": "2024-06-08",
     "product": "External HDD",
     "amount": 85.45
   },
   {
-    "transactionId": 11,
-    "customerId": "C003",
+    "transaction_id": "TXN20240615016",
+    "customer_id": "C001",
+    "customer": "Alice",
+    "date": "2024-06-15",
+    "product": "Wireless Mouse",
+    "amount": 40
+  },
+  {
+    "transaction_id": "TXN20240528017",
+    "customer_id": "C003",
     "customer": "Charlie",
     "date": "2024-05-28",
     "product": "Graphics Card",
     "amount": 350
   },
   {
-    "transactionId": 12,
-    "customerId": "C005",
+    "transaction_id": "TXN20231207018",
+    "customer_id": "C005",
     "customer": "Eve",
     "date": "2023-12-07",
     "product": "Printer",
     "amount": 150
   },
   {
-    "transactionId": 13,
-    "customerId": "C004",
+    "transaction_id": "TXN20231105019",
+    "customer_id": "C004",
     "customer": "David",
     "date": "2023-11-05",
     "product": "Monitor",
     "amount": 180.5
   },
   {
-    "transactionId": 14,
-    "customerId": "C002",
+    "transaction_id": "TXN20230910020",
+    "customer_id": "C002",
     "customer": "Bob",
     "date": "2023-09-10",
     "product": "Headphones",
     "amount": 55
   },
   {
-    "transactionId": 15,
-    "customerId": "C003",
+    "transaction_id": "TXN20230708021",
+    "customer_id": "C003",
     "customer": "Charlie",
     "date": "2023-07-08",
     "product": "Smartwatch",
