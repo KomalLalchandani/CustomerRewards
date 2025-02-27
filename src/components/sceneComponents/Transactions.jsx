@@ -9,10 +9,16 @@ import {
 
 /**
  * Transactions Component
- * This component is responsible for displaying all transaction list.
  *
- * @param {Object} props - Component properties
- * @param {Array} props.transactions - List of transactions to be displayed.
+ * This component displays a list of transactions.
+ *
+ * @param {Object} props - Component properties.
+ * @param {Array} props.transactions - An array of transaction objects. Each object should have:
+ *   - transactionId {string} - A unique identifier for the transaction.
+ *   - customer {string} - The customer's name.
+ *   - date {string} - The transaction date.
+ *   - product {string} - The product purchased.
+ *   - amount {number} - The transaction amount.
  */
 
 const options = [
@@ -93,8 +99,8 @@ const Transactions = ({ transactions = [] }) => {
           {sortedTransactions.map((dt) => {
             const points = calculatePoints(dt.amount);
             return (
-              <tr key={dt.transaction_id}>
-                <td>{dt.transaction_id}</td>
+              <tr key={dt.transactionId}>
+                <td>{dt.transactionId}</td>
                 <td>{dt.customer}</td>
                 <td>{dt.date}</td>
                 <td>{dt.product}</td>
@@ -112,7 +118,7 @@ const Transactions = ({ transactions = [] }) => {
 Transactions.propTypes = {
   transactions: PropTypes.arrayOf(
     PropTypes.shape({
-      transaction_id: PropTypes.string.isRequired,
+      transactionId: PropTypes.string.isRequired,
       customer: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
       product: PropTypes.string.isRequired,

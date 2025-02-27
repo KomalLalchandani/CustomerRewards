@@ -7,16 +7,16 @@ import TotalRewards from "./TotalRewards";
 vi.mock("../../utils", () => ({
   sortByRewardPoints: vi.fn((data, isAscending) => {
     return isAscending
-      ? [...data].sort((a, b) => a.total_reward_points - b.total_reward_points)
-      : [...data].sort((a, b) => b.total_reward_points - a.total_reward_points);
+      ? [...data].sort((a, b) => a.totalRewardPoints - b.totalRewardPoints)
+      : [...data].sort((a, b) => b.totalRewardPoints - a.totalRewardPoints);
   }),
 }));
 
 describe("TotalRewards Component", () => {
   const totalRewardsData = [
-    { customer_id: "123", name: "John Doe", total_reward_points: 120 },
-    { customer_id: "456", name: "Jane Doe", total_reward_points: 80 },
-    { customer_id: "789", name: "Alice", total_reward_points: 150 },
+    { customerId: "123", name: "John Doe", totalRewardPoints: 120 },
+    { customerId: "456", name: "Jane Doe", totalRewardPoints: 80 },
+    { customerId: "789", name: "Alice", totalRewardPoints: 150 },
   ];
 
   test("renders the heading", () => {

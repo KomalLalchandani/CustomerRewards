@@ -5,10 +5,15 @@ import { sortByRewardPoints } from "../../utils";
 
 /**
  * TotalRewards Component
- * This component is responsible for displaying total rewards list.
  *
- * @param {Object} props - Component properties
- * @param {Array} props.rewards - List to Total Rewards to be displayed.
+ * This component is responsible for displaying the total rewards list for customers.
+ *
+ * @param {Object} props - Component properties.
+ * @param {Array} props.totalRewards - An array of objects where each object represents
+ *   the total rewards summary for a customer. Each object must include:
+ *   - customerId {string} (required): The unique identifier for the customer.
+ *   - name {string} (required): The customer's name.
+ *   - totalRewardPoints {number} (required): The total reward points accumulated by the customer.
  */
 
 const TotalRewards = ({ totalRewards = [] }) => {
@@ -47,9 +52,9 @@ const TotalRewards = ({ totalRewards = [] }) => {
         </thead>
         <tbody>
           {sortedTotalRewards.map((data) => (
-            <tr key={data.customer_id}>
+            <tr key={data.customerId}>
               <td>{data.name}</td>
-              <td>{data.total_reward_points}</td>
+              <td>{data.totalRewardPoints}</td>
             </tr>
           ))}
         </tbody>
@@ -61,9 +66,9 @@ const TotalRewards = ({ totalRewards = [] }) => {
 TotalRewards.propTypes = {
   totalRewards: PropTypes.arrayOf(
     PropTypes.shape({
-      customer_id: PropTypes.string.isRequired,
+      customerId: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      total_reward_points: PropTypes.number.isRequired,
+      totalRewardPoints: PropTypes.number.isRequired,
     })
   ),
 };

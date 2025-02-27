@@ -8,9 +8,9 @@ export const sortByDate = (data, isAscending) => {
 /* Sort By Customer Id */
 export const sortByCustomerId = (data, sortState) => {
   if (sortState === "asc") {
-    return [...data].sort((a, b) => a.customer_id.localeCompare(b.customer_id));
+    return [...data].sort((a, b) => a.customerId.localeCompare(b.customerId));
   } else if (sortState === "desc") {
-    return [...data].sort((a, b) => b.customer_id.localeCompare(a.customer_id));
+    return [...data].sort((a, b) => b.customerId.localeCompare(a.customerId));
   }
   return data;
 };
@@ -18,8 +18,8 @@ export const sortByCustomerId = (data, sortState) => {
 /* Sort By Rewards Points */
 export const sortByRewardPoints = (data, isAscending) => {
   return isAscending
-    ? [...data].sort((a, b) => a.total_reward_points - b.total_reward_points)
-    : [...data].sort((a, b) => b.total_reward_points - a.total_reward_points);
+    ? [...data].sort((a, b) => a.totalRewardPoints - b.totalRewardPoints)
+    : [...data].sort((a, b) => b.totalRewardPoints - a.totalRewardPoints);
 };
 
 /* Filter Last 3 months Transactions */
@@ -51,20 +51,20 @@ export const rewardsSummary = (transactions) => {
       month: "long",
     });
     const year = new Date(val?.date).getFullYear();
-    const key = `${val.customer_id}-${month}-${year}`;
+    const key = `${val.customerId}-${month}-${year}`;
 
     if (!acc[key]) {
       acc[key] = {
-        customer_id: val.customer_id,
+        customerId: val.customerId,
         name: val.customer,
         month,
         year,
-        reward_points: 0,
+        rewardPoints: 0,
       };
     }
 
     const points = calculatePoints(val.amount);
-    acc[key].reward_points += points;
+    acc[key].rewardPoints += points;
 
     return acc;
   }, {});
@@ -75,16 +75,16 @@ export const rewardsSummary = (transactions) => {
 /* Calculate Total Rewards */
 export const calculateTotalRewards = (transactions) => {
   const rewards = transactions.reduce((acc, val) => {
-    if (!acc[val.customer_id]) {
-      acc[val.customer_id] = {
-        customer_id: val.customer_id,
+    if (!acc[val.customerId]) {
+      acc[val.customerId] = {
+        customerId: val.customerId,
         name: val.customer,
-        total_reward_points: 0,
+        totalRewardPoints: 0,
       };
     }
 
     const points = calculatePoints(val.amount);
-    acc[val.customer_id].total_reward_points += points;
+    acc[val.customerId].totalRewardPoints += points;
     return acc;
   }, {});
 

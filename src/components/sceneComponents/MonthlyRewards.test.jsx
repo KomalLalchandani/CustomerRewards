@@ -7,9 +7,9 @@ import MonthlyRewards from "./MonthlyRewards";
 vi.mock("../../utils", () => ({
   sortByCustomerId: vi.fn((data, sortState) => {
     if (sortState === "asc")
-      return [...data].sort((a, b) => a.customer_id - b.customer_id);
+      return [...data].sort((a, b) => a.customerId - b.customerId);
     if (sortState === "desc")
-      return [...data].sort((a, b) => b.customer_id - a.customer_id);
+      return [...data].sort((a, b) => b.customerId - a.customerId);
     return data; // Default (unsorted)
   }),
 }));
@@ -17,25 +17,25 @@ vi.mock("../../utils", () => ({
 describe("MonthlyRewards Component", () => {
   const rewardsData = [
     {
-      customer_id: "123",
+      customerId: "123",
       name: "John Doe",
       month: "January",
       year: "2024",
-      reward_points: 60,
+      rewardPoints: 60,
     },
     {
-      customer_id: "123",
+      customerId: "123",
       name: "John Doe",
       month: "December",
       year: "2023",
-      reward_points: 40,
+      rewardPoints: 40,
     },
     {
-      customer_id: "456",
+      customerId: "456",
       name: "Jane Doe",
       month: "February",
       year: "2024",
-      reward_points: 70,
+      rewardPoints: 70,
     },
   ];
 

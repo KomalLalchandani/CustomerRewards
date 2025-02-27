@@ -83,7 +83,7 @@ describe("CustomerRewards Component", () => {
   test("renders Transactions component when selectedView is 'transactions'", () => {
     useGetTransactionListHook.mockReturnValue({
       loader: false,
-      transactions: [{ transaction_id: 1, customer: "John Doe", amount: 100 }],
+      transactions: [{ transactionId: 1, customer: "John Doe", amount: 100 }],
       rewards: [],
       error: null,
     });

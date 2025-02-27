@@ -7,21 +7,21 @@ import { calculatePoints } from "../../utils";
 // Sample mock transactions data
 const mockTransactions = [
   {
-    transaction_id: "T001",
+    transactionId: "T001",
     customer: "John Doe",
     date: "2025-02-01",
     product: "Laptop",
     amount: 120.5,
   },
   {
-    transaction_id: "T002",
+    transactionId: "T002",
     customer: "Jane Smith",
     date: "2023-11-10",
     product: "Phone",
     amount: 200.0,
   },
   {
-    transaction_id: "T003",
+    transactionId: "T003",
     customer: "Alice Johnson",
     date: "2024-12-15",
     product: "Tablet",
@@ -43,7 +43,7 @@ vi.mock("../../utils", () => ({
   ),
   getLastThreeMonthsTransactions: vi.fn((transactions) => {
     return transactions.filter(
-      (transaction) => transaction.transaction_id !== "T002"
+      (transaction) => transaction.transactionId !== "T002"
     );
   }),
 }));
